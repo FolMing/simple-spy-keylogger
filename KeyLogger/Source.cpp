@@ -199,7 +199,7 @@ int main(int argc, char** argv)
 		}
 	}
 
-	file.open("out.txt", ios_base::ate);
+	file.open("out.txt", ios_base::app);
 	if (!file.is_open())
 	{
 		cout << "Failed to open text file" << endl;
