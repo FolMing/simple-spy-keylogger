@@ -32,6 +32,7 @@ LRESULT CALLBACK mouseHookProc(int nCode, WPARAM wParam, LPARAM lParam)
 	PMOUSEHOOKSTRUCT p = (PMOUSEHOOKSTRUCT)lParam;
 	if (wParam == WM_LBUTTONDOWN && nCode >= 0)
 	{
+		cout << "Left Button was clicked at position x: " << p->pt.x << " y: " << p->pt.y << endl;
 		file << "Left Button was clicked at position x: " << p->pt.x << " y: " << p->pt.y << endl;
 		if (scramble && p->dwExtraInfo != 1)
 		{
@@ -47,6 +48,7 @@ LRESULT CALLBACK mouseHookProc(int nCode, WPARAM wParam, LPARAM lParam)
 	}
 	if (wParam == WM_RBUTTONDOWN && nCode >= 0)
 	{
+		cout << "Right Button was clicked at position x: " << p->pt.x << " y: " << p->pt.y << endl;
 		file << "Right Button was clicked at position x: " << p->pt.x << " y: " << p->pt.y << endl;
 		if (scramble && p->dwExtraInfo != 1)
 		{
